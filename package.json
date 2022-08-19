@@ -1,12 +1,15 @@
 {
 	"name": "@xutl/test-modules",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"description": "Module Substitutor for Testing",
-	"main": "src/",
+	"type": "module",
+	"exports": {
+		"import": "./lib/module.mjs",
+		"require": "./lib/common.cjs"
+	},
 	"scripts": {
-		"test": "xutltest",
-		"build": "tsc",
-		"prepublishOnly": "npm run build"
+		"test": "[ -d test ] && env MOCK_TABLE=\"./test/modules.json\" NODE_OPTIONS=\"--no-warnings --experimental-loader=./lib/module.mjs --require=./lib/common.cjs\" xutltest 'test/*.{cjs,mjs}'",
+		"format": "prettier --write '{lib,mocks,test}/**/*.{js,cjs,mjs}'"
 	},
 	"repository": {
 		"type": "git",
@@ -25,12 +28,8 @@
 		"url": "https://github.com/xutl-es/test-modules/issues"
 	},
 	"homepage": "https://xutl.es",
-	"dependencies": {
-		"@xutl/json": "^1.0.0"
-	},
+	"dependencies": {},
 	"devDependencies": {
-		"@types/node": "^14.0.14",
-		"@xutl/test": "^1.0.2",
-		"typescript": "^3.9.5"
+		"@xutl/test": "^1.1.0"
 	}
 }

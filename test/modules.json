@@ -1,1 +1,1 @@
-{ "zipper": "../mocks/mock.js" }
+{ "zipper": "../mocks/mock.cjs" }

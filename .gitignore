@@ -12,8 +12,3 @@ package-lock.json
 
 # Typescript output
 coverage
-
-**/*.d.ts
-**/*.js
-**/*.map
-.gitconfig
